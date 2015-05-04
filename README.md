@@ -1,16 +1,24 @@
+# ipython-d3networkx-psctb
+
+This is a modified version of ipython-d3networkx originally developed by Jonathan Frederic (jon.freder@gmail.com). The original can be found [here](https://github.com/jdfreder/ipython-d3networkx).
+
+This package is installed when installing PyscesToolbox as a git submodule and is not meant to be installed manually.
+
+The original readme follows below:
+
 # ipython-d3networkx
 
 An IPython notebook widget that uses D3.js and NetworkX to make really cool, interactive, force directed graphs.
 
 ## Installation
 
-In a terminal/commandline inside this directory, run  
+In a terminal/commandline inside this directory, run
 
 ```
 pip install .
 ```
 
-For a development install, run  
+For a development install, run
 
 ```
 pip install -e .

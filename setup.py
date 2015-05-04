@@ -8,7 +8,7 @@ except:
     pip.main(['install', 'ipython-pip']); cmdclass = importlib.import_module('ipythonpip').cmdclass
 
 setup(
-    name='d3networkx',
+    name='d3networkx_psctb',
     version='0.1',
     description='Visualize networkx graphs using D3.js in the IPython notebook.',
     author='Jonathan Frederic',
@@ -19,8 +19,8 @@ setup(
     classifiers=['Development Status :: 4 - Beta',
                  'Programming Language :: Python',
                  'License :: OSI Approved :: MIT License'],
-    packages=['d3networkx'],
+    packages=['d3networkx_psctb'],
     include_package_data=True,
     install_requires=["ipython-pip"],
-    cmdclass=cmdclass('d3networkx'),
+    cmdclass=cmdclass('d3networkx_psctb'),
 )
