@@ -3,7 +3,7 @@ from IPython.utils.traitlets import Unicode, CInt, CFloat, Bool # Import the bas
 
 # Define our ForceDirectedGraph and its target model and default view.
 class ForceDirectedGraph(widgets.DOMWidget):
-    _view_module = Unicode('nbextensions/d3networkx/widget', sync=True)
+    _view_module = Unicode('nbextensions/d3networkx_psctb/widget', sync=True)
     _view_name = Unicode('D3ForceDirectedGraphView', sync=True)
 
     width = CInt(500, sync=True)
