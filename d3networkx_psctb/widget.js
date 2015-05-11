@@ -27,6 +27,10 @@ define(function(require) {
             this.model.on('change:show_color_legend', this.draw_color_legend, this);
         },
 
+        save_clicked : function() {
+            this.send({'button_click':'save_image'});
+        },
+
         /**
          * Adds a node if it doesn't exist yet
          * @param  {string} id - node id
@@ -193,6 +197,7 @@ define(function(require) {
             var dict = content.dict;
             var action = content.action;
             var key = content.key;
+            console.log(dict)
 
             if (dict == 'node') {
                 if (action == 'add' || action == 'set') {
@@ -212,6 +217,8 @@ define(function(require) {
                 } else if (action == 'del') {
                     this.remove_links(key);
                 }
+            } else if (dict = 'save_svg') {
+                this.dump_svg();
             }
             this.render_d3();
         },
@@ -479,67 +486,7 @@ define(function(require) {
 
         },
 
-        /**
-         * Handles animation
-         *
-        tick: function() {
-            function gridify(num){
-                var gridsize = 10;
-                var left_overs = num % gridsize;
-                if (left_overs > gridsize/2){
-                    return num + gridsize - left_overs;
-                } else {
-                    return num - left_overs;
-                }
-            };
 
-            var gnode = this.svg.selectAll(".gnode"),
-                link = this.svg.selectAll(".link");
-
-            link.attr("x1", function(d) { return gridify(d.source.x); })
-                .attr("y1", function(d) { return gridify(d.source.y); })
-                .attr("x2", function(d) { return gridify(d.target.x); })
-                .attr("y2", function(d) { return gridify(d.target.y); });
-
-            // Translate the groups
-            gnode.attr("transform", function(d) { return "translate(" + gridify(d.x) + "," + gridify(d.y) + ")"; });
-        },
-        //*/
-        /*
-        tick: function() {
-            var gnode = this.svg.selectAll(".gnode"),
-                link = this.svg.selectAll(".link");
-            function gridify(num){
-                    var gridsize = 10;
-                    var left_overs = num % gridsize;
-                    if (left_overs > gridsize/2){
-                        return num + gridsize - left_overs;
-                    } else {
-                        return num - left_overs;
-                    }
-                };
-
-            link.attr("d", function(d) {
-                var dx = gridify(d.target.x) - gridify(d.source.x),
-                    dy = gridify(d.target.y) - gridify(d.source.y),
-                    dr = Math.sqrt(dx * dx + dy * dy);
-                    if (dx === 0 || dy === 0){
-                        dr = 0;
-                    }
-                return "M" +
-                    gridify(d.source.x) + "," +
-                    gridify(d.source.y) + "A" +
-                    dr + "," + dr + " 0 0,1 " +
-                    gridify(d.target.x) + "," +
-                    gridify(d.target.y);
-            });
-
-
-            // Translate the groups
-            gnode.attr("transform", function(d) { return "translate(" + gridify(d.x) + "," + gridify(d.y) + ")"; });
-        },
-        //*/
-        //*
         tick: function() {
             var gnode = this.svg.selectAll(".gnode"),
                 link = this.svg.selectAll(".link");
@@ -622,6 +569,7 @@ define(function(require) {
             //console.log(source);
             this.model.set('svg_image',source);
             this.touch();
+
 
             //convert svg source to URI data scheme.
             //var url = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(source);
@@ -923,7 +871,7 @@ define(function(require) {
                 this.$img_el.text('Save Image')
 
                 this.$image_btn = this.$img_el.button().addClass('btn btn-default');
-                this.$image_btn.on("click", $.proxy(this.dump_svg, this));
+                this.$image_btn.on("click", $.proxy(this.save_clicked, this));
                 this.$el.append(this.$img_el);
             }
 

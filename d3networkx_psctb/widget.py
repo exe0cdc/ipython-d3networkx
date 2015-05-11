@@ -14,6 +14,7 @@ class ForceDirectedGraph(widgets.DOMWidget):
     gnode_json = Unicode(sync=True)
     straight_links = Bool(False, sync=True)
     show_color_legend = Bool(False, sync=True)
+
     svg_image = Unicode(sync=True)
 
     def __init__(self, eventful_graph, *pargs, **kwargs):
@@ -23,6 +24,9 @@ class ForceDirectedGraph(widgets.DOMWidget):
         self._send_dict_changes(eventful_graph.graph, 'graph')
         self._send_dict_changes(eventful_graph.node, 'node')
         self._send_dict_changes(eventful_graph.adj, 'adj')
+
+    def _dump_svg(self):
+        self.send({'dict':'save_svg', 'action':None, 'key':None})
 
     def _ipython_display_(self, *pargs, **kwargs):
 
