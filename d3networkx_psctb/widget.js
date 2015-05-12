@@ -217,9 +217,9 @@ define(function(require) {
                 } else if (action == 'del') {
                     this.remove_links(key);
                 }
-            } else if (dict = 'save_svg') {
-                this.dump_svg();
             }
+            this.dump_svg();
+
             this.render_d3();
         },
 
