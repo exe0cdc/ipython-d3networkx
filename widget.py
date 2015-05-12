@@ -25,8 +25,8 @@ class ForceDirectedGraph(widgets.DOMWidget):
         self._send_dict_changes(eventful_graph.node, 'node')
         self._send_dict_changes(eventful_graph.adj, 'adj')
 
-    def _dump_svg(self):
-        self.send({'dict':'save_svg', 'action':None, 'key':None})
+    # def _dump_svg(self):
+    #     self.send({'dict':'save_svg', 'action':None, 'key':None})
 
     def _ipython_display_(self, *pargs, **kwargs):
 
