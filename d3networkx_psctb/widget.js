@@ -324,7 +324,7 @@ define(function(require) {
                 })
                 .style("stroke-width", function(d) {
                     if (d.strokewidth === undefined) {
-                        return "#FFF";
+                        return "1.5px";
                     } else {
                         return d.strokewidth;
                     }
@@ -372,7 +372,7 @@ define(function(require) {
                 })
                 .style("stroke-width", function(d) {
                     if (d.strokewidth === undefined) {
-                        return "#FFF";
+                        return "1.5px";
                     } else {
                         return d.strokewidth;
                     }
