@@ -2,10 +2,10 @@
 from __future__ import print_function
 from setuptools import setup
 try:
-    from ipythonpip import cmdclass
+    from jupyterpip import cmdclass
 except:
     import pip, importlib
-    pip.main(['install', 'ipython-pip']); cmdclass = importlib.import_module('ipythonpip').cmdclass
+    pip.main(['install', 'jupyter-pip']); cmdclass = importlib.import_module('jupyterpip').cmdclass
 
 setup(
     name='d3networkx_psctb',
@@ -21,6 +21,6 @@ setup(
                  'License :: OSI Approved :: MIT License'],
     packages=['d3networkx_psctb'],
     include_package_data=True,
-    install_requires=["ipython-pip"],
+    install_requires=["jupyter-pip","networkx"],
     cmdclass=cmdclass('d3networkx_psctb'),
 )
