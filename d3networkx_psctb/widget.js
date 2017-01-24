@@ -28,6 +28,7 @@ define(function(require) {
         },
 
         save_clicked : function() {
+            this.dump_svg();
             this.send({'button_click':'save_image'});
         },
 
@@ -218,7 +219,6 @@ define(function(require) {
                     this.remove_links(key);
                 }
             }
-            this.dump_svg();
 
             this.render_d3();
         },
