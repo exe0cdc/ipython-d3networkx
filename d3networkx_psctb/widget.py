@@ -1,21 +1,21 @@
-from IPython.html import widgets # Widget definitions
-from IPython.utils.traitlets import Unicode, CInt, CFloat, Bool # Import the base Widget class and the traitlets Unicode class.
+import ipywidgets as widgets # Widget definitions
+from traitlets import Unicode, CInt, CFloat, Bool # Import the base Widget class and the traitlets Unicode class.
 
 # Define our ForceDirectedGraph and its target model and default view.
 class ForceDirectedGraph(widgets.DOMWidget):
     _view_module = Unicode('nbextensions/d3networkx_psctb/widget', sync=True)
     _view_name = Unicode('D3ForceDirectedGraphView', sync=True)
 
-    width = CInt(500, sync=True)
-    height = CInt(500, sync=True)
-    charge = CFloat(270., sync=True)
-    distance = CInt(30., sync=True)
-    strength = CInt(0.3, sync=True)
+    width = CInt(500).tag(sync=True)
+    height = CInt(500).tag(sync=True)
+    charge = CFloat(270.).tag(sync=True)
+    distance = CInt(30.).tag(sync=True)
+    strength = CInt(0.3).tag(sync=True)
     gnode_json = Unicode(sync=True)
-    straight_links = Bool(False, sync=True)
-    show_color_legend = Bool(False, sync=True)
+    straight_links = Bool(False).tag(sync=True)
+    show_color_legend = Bool(False).tag(sync=True)
 
-    svg_image = Unicode(sync=True)
+    svg_image = Unicode().tag(sync=True)
 
     def __init__(self, eventful_graph, *pargs, **kwargs):
         widgets.DOMWidget.__init__(self, *pargs, **kwargs)

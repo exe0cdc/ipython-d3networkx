@@ -9,7 +9,7 @@ except:
 
 setup(
     name='d3networkx_psctb',
-    version='0.1',
+    version='0.2',
     description='Visualize networkx graphs using D3.js in the IPython notebook.',
     author='Jonathan Frederic',
     author_email='jon.freder@gmail.com',
